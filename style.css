@@ -1,0 +1,62 @@
+.container {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.flexcolumn{
+    flex-direction: column;
+}
+
+.horizontal-slider{
+    -webkit-appearance: none;
+    width: 20px;
+}
+.vertical-slider {
+    /* counterclockwise turn! */
+    transform: rotate(-90deg);
+    translate: 0 150px;
+}
+
+#humidity-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: rgb(97, 116, 195); /* */
+    height: 25px;
+    width: 50%;
+    background: rgb(215, 251, 251);
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    
+}
+
+#humidity-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background-image: url(/waterDrop.png);
+    background-size: 25px;
+    cursor: pointer; /* Cursor on hover */
+  }
+  
+#humidity-slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    cursor: pointer; /* Cursor on hover */
+    background-image: url(/waterDrop.png);
+}
+
+
+#temperature-div {
+    height: 200px;
+}
+
+#temperature-slider {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  background-image: linear-gradient(-90deg, rgb(223, 77, 89), rgb(227, 220, 174) );
+  border-color: black;
+}
