@@ -11,6 +11,7 @@
 
 #horizontal-slider{
     -webkit-appearance: none;
+    appearance: none;
     width: 20px;
 }
 .vertical-slider {
@@ -89,4 +90,17 @@
     background-color: blue;
     opacity: 0.5;
 
+}
+
+.rain {
+    position: absolute;
+    z-index: 2;
+    width: 100vw;
+    animation: rainmovement 2s linear infinite;
+    opacity: 20;
+}
+
+@keyframes rainmovement{
+    0% {transform: translate(0,0)}
+    100% {transform: translate(0,100vh)}
 }

@@ -30,7 +30,7 @@
         "wind_degree": 223,
         "wind_dir": "SW",
         "pressure": 1027,
-        "precip": 0,
+        "precip": 10,
         "humidity": 27, 
         "cloudcover": 0,
         "feelslike": 16,

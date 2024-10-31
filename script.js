@@ -1,4 +1,11 @@
 // document.getElementById('humidity-slider').disabled = true;
+
+// const apiUrl = "http://weatherstack.com/current";
+//const urlParams = {
+//   query: "Norwich",
+// access_key: "671b96094755c3d56105233875e5b2e9",
+//}
+
 const humiditySlider = document.getElementById('humidity-slider');
 
 const temperatureSlider = document.getElementById('temperature-slider');
@@ -8,9 +15,13 @@ const windSpeedSlider = document.getElementById('windspeed-slider');
 const temperatureValue = document.getElementById('temperature-value');
 const windSpeedValue = document.getElementById('windspeed-value');
 const humidityValue = document.getElementById('humidity-value');
+const rainValue = document.getElementById('raining-value');
 
 
 const leafAnimations = document.getElementsByClassName('leaf');
+const rainAnimations = document.getElementsByClassName('rain');
+
+
 
 const humidityFilter = document.getElementById("humidity-filter");
 
@@ -23,7 +34,7 @@ const apiUrl = "http://localhost:5501/assets/code/test.json";
 
 async function fetchData(){
    try{
-     const response = await fetch(apiUrl)
+     const response = await fetch(apiUrl + new URLSearchParams(urlParams));
 
      // check response
      if (!response.ok) {
@@ -36,6 +47,8 @@ async function fetchData(){
      updateHumidity(json.current.humidity);
      updateWindSpeed(json.current.wind_speed);
      updateTemperature(json.current.temperature);
+     updatePrecip(json.current.precip); /* ??? */
+
    } catch(error) {
     console.error(error)
    }
@@ -71,6 +84,14 @@ function updateTemperature(temperatureValue){
     temperatureValue.innerHTML = humidityValue;
 }
 
+function updatePrecip(newValue){
+    rainValue.value = newValue;
 
+    const newDuration = (10-Number(newValue)) * 3/10 +1;
+    for(const rain of rainAnimations){
+        console.log(newDuration)
+        rain.style.animationDuration = newDuration + "s";
+    }
+}
 
 setInterval(fetchData, 500);
