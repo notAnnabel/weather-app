@@ -9,7 +9,7 @@
     flex-direction: column;
 }
 
-.horizontal-slider{
+#horizontal-slider{
     -webkit-appearance: none;
     width: 20px;
 }
@@ -59,4 +59,34 @@
   appearance: none;
   background-image: linear-gradient(-90deg, rgb(223, 77, 89), rgb(227, 220, 174) );
   border-color: black;
+}
+
+#right-panel {
+    width: 400px;
+}
+
+.leaf {
+    position: absolute;
+    z-index: 2;
+    width: 100px;
+    animation: leafmovement 12s linear infinite;
+}
+
+@keyframes leafmovement{
+  0% {transform: translate(0,0) rotate(0)}
+  20% {transform: translate(15vw, 10vh) rotate(85deg)} 
+  65% {transform: translate(55vw, 12vh) rotate(550deg)}
+  80% {transform: translate(70vw, 17vh) rotate(740deg)}
+  100% {transform: translate(100vw, 25vh) rotate(920deg)}
+}
+
+
+#humidity-filter {
+    position: absolute;
+    z-index: 3;
+    width: 100vw;
+    height: 200vh;
+    background-color: blue;
+    opacity: 0.5;
+
 }

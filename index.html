@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,22 +8,28 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
-<body>
-    <div id='main-div' class='container'>
-      <div id="left-panel">
-        <div id="temperature-div">
-        <input class='vertical-slider' id="temperature-slider" type="range">
-        </div>
-        <p> 30º temperature</p>
-      </div>
 
-      <div id="right-panel" class="container flexcolumn">
-      <div>
-        <input type='range' class="horizontal-slider" id="humidity-slider" min='0' max='100'>
-      <!-- humidity -->
-        <input type='range' class="horizontal-slider" id="humidity-slider" min='0' max='100'> slidee </slider>
-      </div>
+<body>
+    <div id="humidity-filter"></div>
+
+    <img class="leaf" src="assets/Leaf-step-by-step-drawing-tutorial-step-10.webp">
+    <div id='main-div' class='container'>
+        <div id="left-panel">
+            <div id="temperature-div">
+                <input class='vertical-slider' id="temperature-slider" type="range">
+            </div>
+            <p><span id="wind-value"></span>30º temperature</p>
+        </div>
+
+        <div id="right-panel" class="container flexcolumn">
+            <input type='range' class="horizontal-slider" id="humidity-slider" min='0' max='100'>
+            <p><span id="humidity-value"></span> %</p>
+            <!-- humidity -->
+            <input type='range' class="horizontal-slider" id="windspeed-slider" min='0' max='100'>
+            <p><span id="windspeed-value"></span> m / s</p>
+        </div>
     </div>
-    
+
 </body>
+
 </html>
