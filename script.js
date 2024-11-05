@@ -15,7 +15,7 @@ const windSpeedSlider = document.getElementById('windspeed-slider');
 const temperatureValue = document.getElementById('temperature-value');
 const windSpeedValue = document.getElementById('windspeed-value');
 const humidityValue = document.getElementById('humidity-value');
-const rainValue = document.getElementById('raining-value');
+const rainValue = document.getElementById('ground-rain');
 
 
 const leafAnimations = document.getElementsByClassName('leaf');
@@ -24,14 +24,14 @@ const rainAnimations = document.getElementsByClassName('rain');
 
 
 const humidityFilter = document.getElementById("humidity-filter");
-const groundRain = document.getElementById("ground-rain");
+const groundRain = document.getElementById("ground-rain-div");
 
 
 function sliderChange(){
 
 }
 
-const apiUrl = "http://localhost:5500/assets/code/test.json";
+const apiUrl = "/assets/code/test.json";
 
 async function fetchData(){
    try{
@@ -100,11 +100,12 @@ function updateGroundPrecip(newValue){
 
     // console.log("rainValue", rainValue);
     
-    rainValue.value = newValue;
     rainValue.innerHTML = newValue;
 
+    console.log('goroudn rain style top set to',  (100- Number(newValue) * 2) + "vh")
 
-    groundRain.style.height = Number(newValue) * 2 + "px";
+
+    groundRain.style.top = (100- Number(newValue) * 2) + "vh";
 }
 
 setInterval(fetchData, 500);
