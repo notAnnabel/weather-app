@@ -24,17 +24,19 @@ const rainAnimations = document.getElementsByClassName('rain');
 
 
 const humidityFilter = document.getElementById("humidity-filter");
+const groundRain = document.getElementById("ground-rain");
 
 
 function sliderChange(){
 
 }
 
-const apiUrl = "http://localhost:5501/assets/code/test.json";
+const apiUrl = "http://localhost:5500/assets/code/test.json";
 
 async function fetchData(){
    try{
-     const response = await fetch(apiUrl + new URLSearchParams(urlParams));
+    //  const response = await fetch(apiUrl + new URLSearchParams(urlParams));
+     const response = await fetch(apiUrl);
 
      // check response
      if (!response.ok) {
@@ -47,10 +49,10 @@ async function fetchData(){
      updateHumidity(json.current.humidity);
      updateWindSpeed(json.current.wind_speed);
      updateTemperature(json.current.temperature);
-     updatePrecip(json.current.precip); /* ??? */
+     updateGroundPrecip(json.current.precip);
 
    } catch(error) {
-    console.error(error)
+    console.error(error);
    }
 }
 
@@ -84,14 +86,25 @@ function updateTemperature(temperatureValue){
     temperatureValue.innerHTML = humidityValue;
 }
 
-function updatePrecip(newValue){
-    rainValue.value = newValue;
+//function updatePrecip(newValue){
+    //rainValue.value = newValue;
 
-    const newDuration = (10-Number(newValue)) * 3/10 +1;
-    for(const rain of rainAnimations){
-        console.log(newDuration)
-        rain.style.animationDuration = newDuration + "s";
-    }
+    //const newDuration = (10-Number(newValue)) * 3/10 +1;
+    //for(const rain of rainAnimations){
+        //console.log(newDuration)
+        //rain.style.animationDuration = newDuration + "s";
+    //}
+//}
+
+function updateGroundPrecip(newValue){
+
+    // console.log("rainValue", rainValue);
+    
+    rainValue.value = newValue;
+    rainValue.innerHTML = newValue;
+
+
+    groundRain.style.height = Number(newValue) * 2 + "px";
 }
 
 setInterval(fetchData, 500);
