@@ -24,15 +24,15 @@
             "https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0001_sunny.png"
         ],
         "weather_descriptions": [
-            "Sunny"
+            "Sunny" 
         ],
         "wind_speed": 32, 
-        "wind_degree": 223,
+        "wind_degree": 200,
         "wind_dir": "SW",
         "pressure": 1027,
-        "precip": 5,
+        "precip": 1,
         "humidity": 27, 
-        "cloudcover": 0,
+        "cloudcover": 0, 
         "feelslike": 16,
         "uv_index": 1,
         "visibility": 10,

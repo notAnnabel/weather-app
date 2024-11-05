@@ -16,9 +16,9 @@
     <div id='main-div' class='container'>
         <div id="left-panel">
             <div id="temperature-div">
-                <input class='vertical-slider' id="temperature-slider" type="range">
+                <input class='vertical-slider' id="temperature-slider" type="range" min='-10' max='35'>
             </div>
-            <p><span id="wind-value"></span>30º temperature</p>
+            <p><span id="temperature-value"></span>º temperature</p>
         </div>
 
         <div id="right-panel" class="container flexcolumn">
@@ -26,7 +26,7 @@
             <p><span id="humidity-value"></span> %</p>
             <!-- humidity -->
             <input type='range' class="horizontal-slider" id="windspeed-slider" min='0' max='100'>
-            <p><span id="windspeed-value"></span> m / s</p>
+            <p><span id="windspeed-value"></span> km / s</p>
             <img id="arrow" src="red-arrow.png">
         </div>
     </div>

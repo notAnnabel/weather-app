@@ -26,6 +26,8 @@ const rainAnimations = document.getElementsByClassName('rain');
 const humidityFilter = document.getElementById("humidity-filter");
 const groundRain = document.getElementById("ground-rain-div");
 
+const arrowRotate = document.getElementById("arrow");
+
 
 function sliderChange(){
 
@@ -50,11 +52,13 @@ async function fetchData(){
      updateWindSpeed(json.current.wind_speed);
      updateTemperature(json.current.temperature);
      updateGroundPrecip(json.current.precip);
+     updateArrow(json.current.wind_degree);
 
    } catch(error) {
     console.error(error);
    }
 }
+
 
 function updatevalue(sliderElement, value){
     sliderElement.value = value;
@@ -63,14 +67,14 @@ function updatevalue(sliderElement, value){
 
 
 
-function updateHumidity(newValue){
+async function updateHumidity(newValue){
     humiditySlider.value = newValue;
     humidityValue.innerHTML = newValue;
 
     humidityFilter.style.opacity = 0.5* Number(newValue)/100;
 }
 
-function updateWindSpeed(newValue){
+async function updateWindSpeed(newValue){
     windSpeedSlider.value = newValue;
     windSpeedValue.innerHTML = newValue;
     
@@ -81,9 +85,13 @@ function updateWindSpeed(newValue){
     }
 }
 
-function updateTemperature(temperatureValue){
-    temperatureSlider.value = temperatureValue;
-    temperatureValue.innerHTML = humidityValue;
+async function updateTemperature(newValue){
+    temperatureSlider.value = newValue;
+    temperatureValue.innerHTML = newValue;
+
+//    sliderElement.value = Number(newValue) * 2;
+
+    
 }
 
 //function updatePrecip(newValue){
@@ -96,16 +104,21 @@ function updateTemperature(temperatureValue){
     //}
 //}
 
-function updateGroundPrecip(newValue){
+async function updateGroundPrecip(newValue){
 
     // console.log("rainValue", rainValue);
     
     rainValue.innerHTML = newValue;
 
-    console.log('goroudn rain style top set to',  (100- Number(newValue) * 2) + "vh")
+    // console.log('goroudn rain style top set to',  (100- Number(newValue) * 1.6) + "vh")
 
 
-    groundRain.style.top = (100- Number(newValue) * 2) + "vh";
+    groundRain.style.top = (100- Number(newValue) * 2.2) + "vh";
+}
+
+async function updateArrow(newValue){
+    arrowRotate.value = newValue;
+    arrowRotate.style.rotate = newValue;
 }
 
 setInterval(fetchData, 500);
