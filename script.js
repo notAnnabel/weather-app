@@ -16,6 +16,7 @@ const temperatureValue = document.getElementById('temperature-value');
 const windSpeedValue = document.getElementById('windspeed-value');
 const humidityValue = document.getElementById('humidity-value');
 const rainValue = document.getElementById('ground-rain');
+const rotateValue = document.getElementById('rotate-value');
 
 
 const leafAnimations = document.getElementsByClassName('leaf');
@@ -32,8 +33,8 @@ const arrowRotate = document.getElementById("arrow");
 function sliderChange(){
 
 }
-
 const apiUrl = "/assets/code/test.json";
+
 
 async function fetchData(){
    try{
@@ -60,13 +61,6 @@ async function fetchData(){
 }
 
 
-function updatevalue(sliderElement, value){
-    sliderElement.value = value;
-}
-
-
-
-
 async function updateHumidity(newValue){
     humiditySlider.value = newValue;
     humidityValue.innerHTML = newValue;
@@ -87,38 +81,18 @@ async function updateWindSpeed(newValue){
 
 async function updateTemperature(newValue){
     temperatureSlider.value = newValue;
-    temperatureValue.innerHTML = newValue;
-
-//    sliderElement.value = Number(newValue) * 2;
-
-    
+    temperatureValue.innerHTML = newValue;    
 }
 
-//function updatePrecip(newValue){
-    //rainValue.value = newValue;
-
-    //const newDuration = (10-Number(newValue)) * 3/10 +1;
-    //for(const rain of rainAnimations){
-        //console.log(newDuration)
-        //rain.style.animationDuration = newDuration + "s";
-    //}
-//}
 
 async function updateGroundPrecip(newValue){
-
-    // console.log("rainValue", rainValue);
-    
     rainValue.innerHTML = newValue;
-
-    // console.log('goroudn rain style top set to',  (100- Number(newValue) * 1.6) + "vh")
-
-
     groundRain.style.top = (100- Number(newValue) * 2.2) + "vh";
 }
 
 async function updateArrow(newValue){
-    arrowRotate.value = newValue;
-    arrowRotate.style.rotate = newValue;
+    arrowRotate.style.rotate = newValue +'deg';
+    rotateValue.innerHTML = newValue;
 }
 
 setInterval(fetchData, 500);

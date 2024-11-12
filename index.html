@@ -11,14 +11,13 @@
 
 <body>
     <div id="humidity-filter"></div>
-    <img class="rain" id="raining-value" src="assets/raining.png">
     <img class="leaf" src="assets/Leaf-step-by-step-drawing-tutorial-step-10.webp">
     <div id='main-div' class='container'>
         <div id="left-panel">
             <div id="temperature-div">
                 <input class='vertical-slider' id="temperature-slider" type="range" min='-10' max='35'>
             </div>
-            <p><span id="temperature-value"></span>º temperature</p>
+            <p><span id="temperature-value"></span>ºC temperature</p>
         </div>
 
         <div id="right-panel" class="container flexcolumn">
@@ -28,6 +27,7 @@
             <input type='range' class="horizontal-slider" id="windspeed-slider" min='0' max='100'>
             <p><span id="windspeed-value"></span> km / s</p>
             <img id="arrow" src="red-arrow.png">
+            <p><span id="rotate-value"></span> º is the windspeed direction!</p>
         </div>
     </div>
     <div id="ground-rain-div">
