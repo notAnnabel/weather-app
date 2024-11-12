@@ -20,9 +20,6 @@ const rotateValue = document.getElementById('rotate-value');
 
 
 const leafAnimations = document.getElementsByClassName('leaf');
-const rainAnimations = document.getElementsByClassName('rain');
-
-
 
 const humidityFilter = document.getElementById("humidity-filter");
 const groundRain = document.getElementById("ground-rain-div");
@@ -30,9 +27,7 @@ const groundRain = document.getElementById("ground-rain-div");
 const arrowRotate = document.getElementById("arrow");
 
 
-function sliderChange(){
 
-}
 const apiUrl = "/assets/code/test.json";
 
 
@@ -46,9 +41,6 @@ async function fetchData(){
         throw new Error("response status: ", response.status);
      }
      const json = await response.json();
-     console.log(json);
-     console.log(json.current.wind_speed);
-    
      updateHumidity(json.current.humidity);
      updateWindSpeed(json.current.wind_speed);
      updateTemperature(json.current.temperature);
@@ -72,9 +64,9 @@ async function updateWindSpeed(newValue){
     windSpeedSlider.value = newValue;
     windSpeedValue.innerHTML = newValue;
     
-    const newDuration = (32- Number(newValue)) * 11 /32 + 1;
+    let newDuration = (408- Number(newValue)) * 11 /408 + 1;
+    if(newDuration < 0.1) newDuration = 0.1;
     for(const leaf of leafAnimations){
-        console.log(newDuration)
         leaf.style.animationDuration = newDuration + "s";
     }
 }

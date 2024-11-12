@@ -26,12 +26,12 @@
         "weather_descriptions": [
             "Sunny" 
         ],
-        "wind_speed": 32, 
+        "wind_speed": 200, 
         "wind_degree": 20,
         "wind_dir": "SW",
         "pressure": 1027,
         "precip": 10,
-        "humidity": 27, 
+        "humidity": 17, 
         "cloudcover": 0, 
         "feelslike": 16,
         "uv_index": 1,
